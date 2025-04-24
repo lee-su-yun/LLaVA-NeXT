@@ -347,6 +347,7 @@ class LlavaMetaForCausalLM(ABC):
                             new_image_features.append(image_feature.flatten(0, 1))
                         else:
                             raise ValueError(f"Unexpected mm_newline_position: {mm_newline_position}")
+                    print(image_feature.shape)
                     elif image_feature.shape[0] > 1:  # multi patches and multi images operations
                         # rank0_print("Single-images")
                         base_image_feature = image_feature[0]
@@ -407,7 +408,7 @@ class LlavaMetaForCausalLM(ABC):
                     else:  # single image operations
                         image_feature = image_feature[0]
                         if "unpad" in mm_patch_merge_type:
-                            image_feature = torch.cat((image_feature, self.model.image_newline[None]).to(image_feature.device), dim=0)
+                            image_feature = torch.cat((image_feature, self.model.image_newline[None]), dim=0)
 
                         new_image_features.append(image_feature)
                 image_features = new_image_features
