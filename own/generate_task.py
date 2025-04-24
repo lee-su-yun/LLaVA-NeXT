@@ -66,7 +66,7 @@ def generate_task_plan_from_images(model_path, model_base, image_paths, question
 
     with torch.inference_mode():
         output_ids = model.generate(
-            input_ids=input_ids,
+            inputs=input_ids,
             images=image_tensors,
             max_new_tokens=1024
         )
