@@ -8,7 +8,7 @@ from PIL import Image
 from llava.model.builder import load_pretrained_model
 from llava.utils import disable_torch_init
 from llava.mm_utils import get_model_name_from_path
-from model_vqa import preprocess_qwen
+from own.preprocess_qwen import preprocess_qwen
 
 import warnings
 warnings.filterwarnings("ignore")
