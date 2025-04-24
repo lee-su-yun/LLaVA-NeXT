@@ -22,7 +22,7 @@ def generate_task_plan_from_images(model_path, model_base, image_paths, question
     print('Model is loaded successfully')
 
         # Prefix each image path with "./picture/"
-    image_paths = [f"./pictures/{image_path}" for image_path in image_paths]
+    image_paths = [f"../pictures/{image_path}" for image_path in image_paths]
 
     image_tensors = []
     for image_path in image_paths:
