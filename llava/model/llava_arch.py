@@ -347,7 +347,7 @@ class LlavaMetaForCausalLM(ABC):
                             new_image_features.append(image_feature.flatten(0, 1))
                         else:
                             raise ValueError(f"Unexpected mm_newline_position: {mm_newline_position}")
-                    print(image_feature.shape)
+
                     elif image_feature.shape[0] > 1:  # multi patches and multi images operations
                         # rank0_print("Single-images")
                         base_image_feature = image_feature[0]
