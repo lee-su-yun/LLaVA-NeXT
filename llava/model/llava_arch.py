@@ -406,6 +406,7 @@ class LlavaMetaForCausalLM(ABC):
                             image_feature = torch.cat((base_image_feature, image_feature), dim=0)
                         new_image_features.append(image_feature)
                     else:  # single image operations
+                        raise ValueError(f"image_feature_dim: {image_feature.shape}")
                         image_feature = image_feature[0]
                         if "unpad" in mm_patch_merge_type:
                             image_feature = torch.cat((image_feature, self.model.image_newline[None]), dim=0)
